@@ -1,0 +1,229 @@
+nav {
+    position: sticky;
+    top: 0;
+    /* Sticks to the top of the viewport */
+    z-index: 1000;
+    /* Ensures it stays above other content */
+    background-color: rgb(237, 242, 237);
+    /* Optional: adds background */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    /* Optional: adds subtle shadow */
+    padding: 0.7rem;
+    text-align: center;
+}
+
+
+
+.navbar-custom a {
+    color: rgb(40, 28, 28);
+    text-decoration: none;
+    margin: 0 0.2rem;
+}
+
+.navbar-custom a:hover {
+    text-decoration: underline;
+}
+
+.navbar-custom a.active {
+    color: #2a2626;
+    font-weight: bold;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.container2 {
+    margin-top: -20px;
+}
+
+/* Custom styles for compact design with background */
+.card-details {
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 0px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #363636;
+    text-align: center;
+}
+
+.titleHead {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.data-item {
+    font-size: 0.83rem;
+    margin-bottom: 1px;
+    color: #4a4a4a;
+}
+
+.data-item-title {
+    color: #8a8a8a;
+    font-weight: bold;
+}
+
+.data-item-value {
+    color: #363636;
+    font-weight: 400;
+}
+
+.one-line {
+    white-space: nowrap;
+    /* Prevent text from wrapping to the next line */
+    overflow: hidden;
+    /* Hide the overflowed text */
+    text-overflow: ellipsis;
+    /* Add "..." for the truncated content */
+    width: 200px;
+    /* Set a fixed width to constrain the content */
+}
+
+.hlp {
+    padding: 2px;
+}
+
+.box {
+    padding: 10px;
+    max-width: 500px;
+}
+
+.media-content {
+    overflow: hidden;
+}
+
+.cash-button {
+    width: 16rem
+}
+
+.modal-content {
+    margin: 10px;
+    background: pink
+}
+
+/* Selected buttons container (as before) */
+.selected-buttons {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.selected-button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+
+
+.fade {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.visible {
+    display: flex;
+    opacity: 1;
+}
+
+.title-header {
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Third set: Input fields layout */
+.input-set {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-field {
+    margin-bottom: 15px;
+    width: 70%;
+}
+
+.modal-card {
+    width: 90%;
+    max-width: 400px;
+}
+
+.notify-msg {
+    height: auto;
+    font-size: 1rem;
+    /* visibility: hidden; */
+}
+
+.notify-msg.success {
+    color: #33691e;
+    visibility: visible;
+}
+
+.notify-msg.error {
+    color: #cd5244;
+    visibility: visible;
+}
+
+/* dynamic buttons */
+.custom-button {
+    margin-bottom: 10px;
+    color: #3273dc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(50, 115, 220, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    width: 50%;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.custom-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(50, 115, 220, 0.3);
+}
+
+.selected-label {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #3273dc;
+    background-color: #e6f7ff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(50, 115, 220, 0.2);
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}

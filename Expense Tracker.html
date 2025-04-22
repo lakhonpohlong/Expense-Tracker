@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Card Details</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Light Navbar -->
+  <nav class="navbar-custom">
+    <div class="container">
+      <a class="nav-item active" href="#" id="homeNav" onclick="showSection('home','homeNav')">Home</a>
+      <a class="nav-item" href="#" id="profileNav" onclick="showSection('profile','profileNav')">Profile</a>
+      <a class="nav-item" href="#" id="credit-cardNav" onclick="showSection('credit-card','credit-cardNav')">Card</a>
+      <a class="nav-item" id="transactionNav" onclick="showSection('transaction','transactionNav')">Transaction</a>
+      <a class="nav-item" id="settingNav" href="#" onclick="showSection('setting','settingNav')">Setting</a>
+    </div>
+  </nav>
+  <main class="container2">
+    <section id="home" class="section active">
+      <div class="titleHead">Credit Card Details</div>
+      <div class="columns is-mobile is-multiline" id="dashboard-content">
+      </div>
+    </section> <!-- start profile section -->
+    <section id="profile" class="section">
+      <div class="is-flex is-flex-row is-justify-content-space-between">
+        <div class="titleHead">Profile List</div>
+        <button class="button modal-button" id="addBtn" data-modal="profile-modal"><i class="fas fa-plus"></i>
+          <span class="pl-1">Add Profile</span>
+        </button>
+      </div>
+      <table class="table is-striped is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Salary</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="profile-table">
+        </tbody>
+      </table>
+    </section>
+
+    <section id="credit-card" class="section">
+      <div class="is-flex is-flex-row is-justify-content-space-between">
+        <div class="titleHead">Credit Card List</div>
+        <button class="button modal-button" id="addBtn" data-modal="credit-card-modal"><i class="fas fa-plus"></i>
+          <span class="pl-1">Add New</span>
+        </button>
+      </div>
+      <table class="table is-striped is-hoverable">
+        <thead>
+          <tr>
+            <th class="is-size-7-mobile">Card</th>
+            <th class="is-size-7-mobile">Limit</th>
+            <th class="is-size-7-mobile">Utilized</th>
+            <th class="is-size-7-mobile">Rem.</th>
+            <th class="is-size-7-mobile">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="credit-card-table">
+        </tbody>
+      </table>
+    </section>
+    <!-- transaction section -->
+    <section id="transaction" class="section">
+
+      <div class="is-flex is-flex-row is-justify-content-space-between">
+        <div class="titleHead">Transaction List</div>
+        <button class="button" id="addBtn" onclick="showSection('addTransaction','transactionNav')"><i
+            class="fas fa-plus"></i>
+          <span class="pl-1">Add New</span>
+        </button>
+      </div>
+      <div class="box" id="transaction-list">
+        <!-- Transactions will be dynamically inserted here -->
+      </div>
+      <div class="pagination-controls" id="pagination-controls">
+        <!-- Pagination buttons will be dynamically inserted here -->
+      </div>
+    </section>
+    <section id="addTransaction" class="section">
+      <div class="container">
+        <h1 class="title is-size-4 has-text-centered">Personal Expense Management Form</h1>
+        <div class="selected-label" id="selected-label">Selected: None</div>
+        <div id="button-set-1" class="button-container"></div>
+        <div id="button-set-2" class="button-container hidden"></div>
+        <div id="form-container" class="form-container hidden">
+          <form>
+            <input type="text" id="input-item" class="input is-primary" placeholder="Enter Item Name"
+              style="margin-bottom: 10px; width: 50%;" required>
+            <input type="number" id="input-amount" class="input is-primary" placeholder="Enter Amount"
+              style="margin-bottom: 10px; width: 50%;" required>
+            <button id="submit-button" class="button custom-button" style="background-color: #f0fff4;"> <i
+                class="fas fa-check"></i><span class="pl-1">Submit</button>
+          </form>
+        </div>
+        <button id="back-button" class="button custom-button hidden" style="background-color: #fff8e6;"> <i
+            class="fas fa-arrow-left"></i><span class="pl-1">Back</span></button>
+      </div>
+    </section>
+    <section id="setting" class="section">
+      <h2 class="title">Setting</h2>
+      <p>Manage your setting information here.</p>
+    </section>
+  </main> <!-- Modals -->
+
+  <!-- Modal -->
+  <div class="modal" id="profile-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title is-size-5">Profile Form</p>
+        <button class="delete" aria-label="close" data-close="profile-modal"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Profile Form -->
+        <form id="profile-form">
+          <label>Full Name:</label>
+          <input type="text" class="input" name="Full Name" id="profile-fullname" required>
+          <label>Salary:</label>
+          <input type="number" class="input" name="Salary" id="profile-salary" required>
+        </form>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success" type="submit" id="saveProfileButton" form="profile-form">Submit</button>
+        <button class="button is-warning" type="reset" id="resetForm">Reset</button>
+        <button class="button" data-close="profile-modal" id="closeModalFooter">Close</button>
+      </footer>
+    </div>
+  </div>
+  <!-- Credit Card Modal -->
+  <div class="modal" id="credit-card-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title is-size-5">Add Credit Card</p>
+        <button class="delete" aria-label="close" data-close="credit-card-modal"></button>
+      </header>
+      <section class="modal-card-body">
+        <form id="credit-card-form">
+          <div id="creditCardMessageBox" class="notify-msg error">success</div>
+
+
+          <label class="label" for="card-number">Card Number</label>
+          <div class="field has-addons">
+            <p>
+              <input class="input" type="text" value="XXXX-XXXX-XXXX-" disabled>
+            </p>
+            <p class="control">
+              <input class="input" type="number" id="cardLast4" name="cardNumber" id="card-number" maxlength="4"
+                width="12rem" pattern="\d{4}" required placeholder="XXXX">
+            </p>
+          </div>
+
+          <div class="field">
+            <label class="label" for="bank-name">Bank Name</label>
+            <div class="control">
+              <div class="select">
+                <select id="bank-name" name="bankName" required>
+                  <option value="" disabled selected>Select Bank</option>
+                  <option value="SBI">SBI</option>
+                  <option value="AXIS">AXIS</option>
+                  <option value="HDFC">HDFC</option>
+                  <option value="ICICI">ICICI</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="card-limit">Limit</label>
+            <div class="control">
+              <input class="input" type="number" id="card-limit" name="cardLimit" placeholder="Enter limit" required />
+            </div>
+          </div>
+        </form>
+      </section>
+      <footer class="modal-card-foot">
+        <button type="submit" class="button is-primary" form="credit-card-form"
+          id="saveCreditCardButton">Submit</button>
+        <button class="button is-warning" type="reset" form="credit-card-form">Reset</button>
+        <button class="button" data-close="credit-card-modal">Cancel</button>
+      </footer>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
